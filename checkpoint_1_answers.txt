@@ -1,0 +1,97 @@
+  1.  What data types do each of these values represent?
+
+    1. "A Clockwork Orange"- String 
+    2. 42- Integer
+    3. 09/02/1945- date 
+    4. 98.7- float 
+    5. $15.99- float 
+
+  2. Explain in your own words when a database might be used. Explain when a text file might be used.
+
+    A database would be used when you need to store a record of something that changes but needs to be accessed by different 
+    people. For example imagine you had an inventory system tracking goods that are in the companies inventory and as goods 
+    are sold you have several people working inventory and updating the new amounts in the system. This would be a good time
+    for a database. A text file might be used if you just want to run a script to speed up some task that would take to long
+    to do manually. But a text file is not the most ideal for storing logs of information or data unless it is only used
+    and accessed by one individual which in that case you could probably get away with a text file just fine. 
+
+  3. Descibe one difference between SQL and other programming languages.
+
+    SQL is a declarative programming language whereas a language like ruby is procedural. This means that with SQL you are 
+    using declarative statements to tell the database engine what it is you want. Then the database engine will decide by
+    what means to return what it is you declared it had to return to you. With procedural programming languages like ruby for     example you are literally righting out a procedure of instructions to be followed to give you your desired result.
+
+  4. In your own words, explain how the pieces of a database system fit together at a high level. 
+  
+    You have a table that represents the instances of what it is you want stored in that table for example lets say users. So     you have that users table and within that users table there are columns each representing a specific attribute of that
+    user the first column being id of that user used to retrieve individual users. Each row is an instance of a user and the 
+    intersection point between a column and row will represent a data value of that particular users attribute that you are 
+    requesting a query on. When you declare a query on a specific user by thier given id then that users row of information 
+    will be returned in a table for you without the id column unless you desire to have the id in the returned query in which 
+    case you can use the * wildcard operator to return all columns of the given match which will then return the id column as
+    well. 
+
+  5. Explain the meaning of table, row, column and value. 
+    
+    Like I mentioned above the table is representing the instance or instances of what it is you want stored. The columns 
+    represent the attributes of that or those instances. Each row is an instance. And the value is an intersecting point of 
+    a attribute and a particular instance. The place where those two intersect is the value. 
+
+  6. List 3 data types that can be used in a table. 
+
+    1. String
+    2. Float
+    3. Object
+
+  7. Given this payments table, provide an English description of the following queries and include their results: 
+
+      SELECT date, amount     -This query is asking the database to return an amount on a particular date from the payments
+      FROM payments;           table. 
+
+      SELECT amount           -This query is asking for any amounts in the payments table greater then 500. 
+      FROM payments
+      WHERE amount > 500;
+
+      SELECT *                -This query is asking for all columns in the payments table to be returned where the payee is 
+      FROM payments           equal to the string 'Mega Foods'
+      WHERE payee = 'Mega Foods';
+
+  8. Given this users table, write SQL queries using the following criteria and include the output:
+
+      1. The email and sign-up date for the user named DeAndre Data.
+      2. The user ID for the user with email 'aleesia.algorithm@uw.edu'.
+      3. All the columns for the user ID equal to 4.
+
+       1. SELECT email, signup
+          FROM users
+          WHERE name = 'DeAndre Data';
+        
+       2. SELECT userid
+          FROM users
+          WHERE email = 'aleesia.algorithm@uw.edu';
+
+       3. SELECT *
+          FROM users
+          WHERE userid = 4;
+      ____________________________________________
+      |Query #1 Execution time: 1ms              |
+      |__________________________________________|
+      |email	          |signup                  |
+      |________________ |________________________|
+      |datad@comcast.net|2008-01-20T00:00:00.000Z|
+      |_________________|________________________|
+
+       ____________________________
+      |Query #2 Execution time: 0ms|
+      |____________________________|
+      |userid|                     |
+      |______|       | |           |
+      |1     |      \___/          |
+      |______|_____________________|
+      _________________________________________________________________
+      |Query #3 Execution time: 0ms                                    |
+      |________________________________________________________________|
+      |userid|name	        |email	          |signup                  |
+      |______|______________|_________________|________________________|
+      |4	   |Brandy Boolean|bboolean@nasa.gov|1999-10-15T00:00:00.000Z|
+      |______|______________|_________________|________________________|
